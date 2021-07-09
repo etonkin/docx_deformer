@@ -183,7 +183,7 @@ def scan_directory(thedirname):
     for f in onlyfiles:
         lowerf=f.lower();
         if lowerf.endswith('.docx'):
-            scan_results.append(f)
+            scan_results.append(os.path.join(thedirname,f))
     return scan_results;
 
 if __name__ == "__main__":
@@ -228,6 +228,7 @@ if __name__ == "__main__":
                 print("Scanning")
                 target_files=scan_directory(current_val);
             
+    print(target_files)
     for current_argument, current_val in arguments:
         if(current_argument=="--scan" or current_argument=="-s"):
             total_files=0;
